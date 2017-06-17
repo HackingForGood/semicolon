@@ -72,8 +72,34 @@
   </header>
 
   <main class="mdl-layout__content mdl-color--grey-100">
+    <div id="courses-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
+      <!-- courses container -->
+      <div id="courses-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
+        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <div id="courses">
+            <span id="course-filler"></span>
+          </div>
+          <!--
+          <form id="course-form" action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="course">
+              <label class="mdl-textfield__label" for="course">course...</label>
+            </div>
+            <button id="Edit" disabled type="edit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+              Edit
+            </button>
+          </form>
+          <form id="image-form" action="#">
+            <input id="mediaCapture" type="file" accept="image/*,capture=camera">
+            <button id="submitImage" title="Add an image" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-400 mdl-color-text--white">
+              <i class="material-icons">image</i>
+            </button>
+          </form>
+          -->
+        </div>
+      </div>
+    </div>
     <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
-
       <!-- Messages container -->
       <div id="messages-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
         <div class="mdl-card__supporting-text mdl-color-text--grey-600">
@@ -97,38 +123,13 @@
           </form>
         </div>
       </div>
+    </div>
 
-      <div id="courses-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
+    
 
-      <!-- courses container -->
-        <div id="courses-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
-          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            <div id="courses">
-              <span id="course-filler"></span>
-            </div>
-            <form id="course-form" action="#">
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="course">
-                <label class="mdl-textfield__label" for="course">course...</label>
-              </div>
-              <!--<button id="Edit" disabled type="edit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                Edit
-              </button>-->
-            </form>
-            <form id="image-form" action="#">
-              <input id="mediaCapture" type="file" accept="image/*,capture=camera">
-              <button id="submitImage" title="Add an image" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-400 mdl-color-text--white">
-                <i class="material-icons">image</i>
-              </button>
-            </form>
-          </div>
-        </div>
-
-      <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
-        <div class="mdl-snackbar__text"></div>
-        <button class="mdl-snackbar__action" type="button"></button>
-      </div>
-
+    <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+      <div class="mdl-snackbar__text"></div>
+      <button class="mdl-snackbar__action" type="button"></button>
     </div>
   </main>
 </div>
