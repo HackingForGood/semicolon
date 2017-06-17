@@ -1,0 +1,28 @@
+[debug] [2017-06-17T15:24:29.127Z] ----------------------------------------------------------------------
+[debug] [2017-06-17T15:24:29.132Z] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2017-06-17T15:24:29.132Z] CLI Version:  3.9.1
+[debug] [2017-06-17T15:24:29.133Z] Platform:     darwin
+[debug] [2017-06-17T15:24:29.133Z] Node Version: v6.11.0
+[debug] [2017-06-17T15:24:29.134Z] Time:         Sat Jun 17 2017 11:24:29 GMT-0400 (EDT)
+[debug] [2017-06-17T15:24:29.134Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-06-17T15:24:29.155Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-06-17T15:24:29.156Z] > authorizing via signed-in user
+[debug] [2017-06-17T15:24:29.160Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/semicolon-ptc  
+ Sat Jun 17 2017 11:24:29 GMT-0400 (EDT)
+[debug] [2017-06-17T15:24:29.703Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-17T15:24:29.705Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/semicolon-ptc/tokens  
+ Sat Jun 17 2017 11:24:29 GMT-0400 (EDT)
+[debug] [2017-06-17T15:24:30.053Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/billyzhong/proj/friendlychat/web'...
+[info] 
+[debug] [2017-06-17T15:24:30.058Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/semicolon-ptc  
+ Sat Jun 17 2017 11:24:30 GMT-0400 (EDT)
+[debug] [2017-06-17T15:24:30.368Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-17T15:24:30.369Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/467324580481/clients/_:getWebAppConfig  
+ Sat Jun 17 2017 11:24:30 GMT-0400 (EDT)
+[debug] [2017-06-17T15:24:30.783Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: ./
+[info] ✔  hosting: Local server: http://localhost:5000
+
