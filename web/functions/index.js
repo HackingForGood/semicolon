@@ -23,11 +23,13 @@ admin.initializeApp(functions.config().firebase);
  // Imports the Google Cloud client library
 const Translate = require('@google-cloud/translate');
 
-
 // Adds a message that welcomes new users into the chat.
 exports.translateMessages = functions.database.ref('/courses').onWrite(event => {
 	console.log('Inside cloud functions');
-  /*
+
+// Write the addWelcomeMessages Function here.
+// Adds a message that welcomes new users into the chat.
+exports.addWelcomeMessages = functions.auth.user().onCreate((event) => {
   const user = event.data;
   console.log('A new user signed in for the first time.');
   const fullName = user.displayName || 'Anonymous';
@@ -39,5 +41,7 @@ exports.translateMessages = functions.database.ref('/courses').onWrite(event => 
     photoUrl: '/assets/images/firebase-logo.png', // Firebase logo
     text: `${fullName} signed in for the first time! Welcome!`
   });
-*/  
-});
+
+// TODO(DEVELOPER): Write the blurOffensiveImages Function here.
+
+// TODO(DEVELOPER): Write the sendNotifications Function here.
