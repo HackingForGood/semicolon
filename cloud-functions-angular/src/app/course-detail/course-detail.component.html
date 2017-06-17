@@ -1,0 +1,30 @@
+<div *ngIf="course | async" >
+  <md-card class="flex-item">
+       <md-card-header>
+         <md-card-title><b>Name:</b> {{ (course | async)?.name}} </md-card-title>
+         <md-card-subtitle><b>Teacher:</b> {{(course | async)?.teacher | uppercase}}</md-card-subtitle>
+       </md-card-header>
+
+       <md-card-actions>
+         <button [routerLink]="['/course/list']"  md-button>CourseList</button>
+       </md-card-actions>
+  </md-card>
+</div>
+
+<!--
+<md-card class="flex-item">
+     <md-card-header>
+       <md-card-title><b>Name:</b> {{ (course | async)?.name}} </md-card-title>
+       <md-card-subtitle><b>Teacher:</b> {{(course | async)?.teacher | uppercase}}</md-card-subtitle>
+     </md-card-header>
+
+     <md-card-actions>
+       <button [routerLink]="['/course/list']"  md-button>CourseList</button>
+     </md-card-actions>
+</md-card> -->
+
+
+<app-message-card
+[course]="course"
+[messages]="messages"
+></app-message-card>
