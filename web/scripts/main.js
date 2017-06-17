@@ -68,11 +68,11 @@ FriendlyChat.prototype.initFirebase = function() {
 };
 
 // Loads chat messages history and listens for upcoming ones.
-FriendlyChat.prototype.loadMessages = function(key) {
+FriendlyChat.prototype.loadMessages = function(key = 1) {
   var path = 'courses/' + key + '/messages';
   console.log(path);
   // Reference to the /messages/ database path.
-  this.messagesRef = this.database.ref('courses/key/messages');
+  this.messagesRef = this.database.ref(path);
   // Make sure we remove all previous listeners.
   this.messagesRef.off();
 
@@ -349,7 +349,7 @@ FriendlyChat.prototype.displayCourse = function(key, name, text, picUrl, imageUr
     div.setAttribute('id', key);
     this.courseList.appendChild(div);
   }
-  
+
   if (picUrl) {
     div.querySelector('.pic').style.backgroundImage = 'url(' + picUrl + ')';
   }
@@ -374,6 +374,10 @@ FriendlyChat.prototype.displayCourse = function(key, name, text, picUrl, imageUr
   setTimeout(function() {div.classList.add('visible')}, 1);
   this.courseList.scrollTop = this.courseList.scrollHeight;
   this.messageInput.focus();
+
+  // Display messages for courses.
+  //this.courseButton = document.getElementById('coursebutton');
+  //this.courseButton.addEventListener('click', this.loadMessages.bind(this));
 
   this.loadMessages(key);
 };
