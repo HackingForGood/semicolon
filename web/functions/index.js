@@ -13,13 +13,31 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ const functions = require('firebase-functions');
+// Import and initialize the Firebase Admin SDK.
+const admin = require('firebase-admin');
+admin.initializeApp(functions.config().firebase);
 
-// Note: You will edit this file in the follow up codelab about the Cloud Functions for Firebase.
+ // import google translate api
+ //install by using : npm install --save @google-cloud/translate
+ // Imports the Google Cloud client library
+const Translate = require('@google-cloud/translate');
 
-// TODO(DEVELOPER): Import the Cloud Functions for Firebase and the Firebase Admin modules here.
 
-// TODO(DEVELOPER): Write the addWelcomeMessages Function here.
+// Adds a message that welcomes new users into the chat.
+exports.translateMessages = functions.database.ref('/courses').onWrite(event => {
+	console.log('Inside cloud functions');
+  /*
+  const user = event.data;
+  console.log('A new user signed in for the first time.');
+  const fullName = user.displayName || 'Anonymous';
 
-// TODO(DEVELOPER): Write the blurOffensiveImages Function here.
-
-// TODO(DEVELOPER): Write the sendNotifications Function here.
+  // Saves the new welcome message into the database
+  // which then displays it in the FriendlyChat clients.
+  return admin.database().ref('messages').push({
+    name: 'Firebase Bot',
+    photoUrl: '/assets/images/firebase-logo.png', // Firebase logo
+    text: `${fullName} signed in for the first time! Welcome!`
+  });
+*/  
+});
