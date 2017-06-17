@@ -68,9 +68,11 @@ FriendlyChat.prototype.initFirebase = function() {
 };
 
 // Loads chat messages history and listens for upcoming ones.
-FriendlyChat.prototype.loadMessages = function() {
+FriendlyChat.prototype.loadMessages = function(key) {
+  var path = 'courses/' + key + '/messages';
+  console.log(path);
   // Reference to the /messages/ database path.
-  this.messagesRef = this.database.ref('messages');
+  this.messagesRef = this.database.ref('courses/key/messages');
   // Make sure we remove all previous listeners.
   this.messagesRef.off();
 
@@ -93,6 +95,7 @@ FriendlyChat.prototype.loadCourses = function() {
   // Loads the last 12 messages and listen for new ones.
   var setCourse = function(data) {
     var val = data.val();
+    //debugger;
     this.displayCourse(data.key, val.name, val.text, val.photoUrl, val.imageUrl);
   }.bind(this);
   //console.log(setCourse);
@@ -212,7 +215,8 @@ FriendlyChat.prototype.onAuthStateChanged = function(user) {
     this.signInButton.setAttribute('hidden', 'true');
 
     // We load currently existing chant messages.
-    this.loadMessages();
+    // Load default course message.
+    this.loadMessages(1);
     this.loadCourses();
 
     // We save the Firebase Messaging Device token and enable notifications.
@@ -354,10 +358,13 @@ FriendlyChat.prototype.displayCourse = function(key, name, text, picUrl, imageUr
     messageElement.innerHTML = '';
     messageElement.appendChild(image);
   }
+
   // Show the card fading-in and scroll to view the new message.
   setTimeout(function() {div.classList.add('visible')}, 1);
   this.courseList.scrollTop = this.courseList.scrollHeight;
   this.messageInput.focus();
+
+  this.loadMessages(key);
 };
 
 // Enables or disables the submit button depending on the values of the input
