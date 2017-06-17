@@ -350,7 +350,7 @@ FriendlyChat.prototype.displayCourse = function(key, name, text, picUrl, imageUr
     var container = document.createElement('div');
     var inner_text1 = FriendlyChat.COURSE_TEMPLATE_1;
     var inner_text2 = FriendlyChat.COURSE_TEMPLATE_2;
-    var inner_text = inner_text1 + "FriendlyChat.loadMessages(" + key + ")" + inner_text2;
+    var inner_text = inner_text1 + "window.friendlyChat.loadMessages(" + key + ")" + inner_text2;
     container.innerHTML = inner_text;
     div = container.firstChild;
     div.setAttribute('id', key);
