@@ -23,9 +23,8 @@ admin.initializeApp(functions.config().firebase);
  // Imports the Google Cloud client library
 const Translate = require('@google-cloud/translate');
 
-// Adds a message that welcomes new users into the chat.
-exports.translateMessages = functions.database.ref('/courses').onWrite(event => {
-	console.log('Inside cloud functions');
+exports.translateMessages = functions.database.ref('/courses/{courseId}/messages/{messageId}').onWrite(event => {
+	console.log(event.data.val());
 
 // Write the addWelcomeMessages Function here.
 // Adds a message that welcomes new users into the chat.
