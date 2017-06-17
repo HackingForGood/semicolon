@@ -27,6 +27,29 @@ const Translate = require('@google-cloud/translate');
 exports.translateMessages = functions.database.ref('/courses/{courseId}/messages/{messageId}/text').onWrite(event => {
 	const message = event.data.val();
 
+  const translate = Translate();
+
+  const target = 'zh-CN';
+
+  // Translates the text into the target language. "text" can be a string for
+  // translating a single piece of text, or an array of strings for translating
+  // multiple texts.
+  translate.translate(message, target)
+    .then((results) => {
+      let translations = results[0];
+      translations = Array.isArray(translations) ? translations : [translations];
+      
+      console.log('Translations:');
+      translations.forEach((translation, i) => {
+        console.log(`${message[i]} => (${target}) ${translation}`);
+      });
+
+      return event.data.ref.parent.child('translation').set(translations[0]);
+    })
+    .catch((err) => {
+      console.error('ERROR:', err);
+    });
+
 });
 
 // Write the addWelcomeMessages Function here.
