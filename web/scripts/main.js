@@ -23,6 +23,9 @@ function FriendlyChat() {
   this.courseList = document.getElementById('courses');
   this.courseCardContainer = document.getElementById('courses-card-container');
 
+  //this.courseMaterialList = document.getElementById('course-materials');
+  //this.courseMaterialCardContainer = document.getElementById('course-materials-card-container');
+
   this.messageList = document.getElementById('messages');
   this.messageForm = document.getElementById('message-form');
   this.messageInput = document.getElementById('message');
@@ -79,7 +82,7 @@ FriendlyChat.prototype.loadMessages = function(key = 1) {
   // Loads the last 12 messages and listen for new ones.
   var setMessage = function(data) {
     var val = data.val();
-    this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl);
+    this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl, val.translation);
   }.bind(this);
 
   this.messagesRef.limitToLast(12).on('child_added', setMessage);
@@ -301,16 +304,17 @@ FriendlyChat.COURSE_TEMPLATE_1 =
       '<button onclick=';
 
 FriendlyChat.COURSE_TEMPLATE_2 =
-      '>Test</button>'+
+      '>Select</button>'+
     '</div>';
 
 // A loading image URL.
 FriendlyChat.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
 // Displays a Message in the UI.
-FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageUri) {
+FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageUri, translation) {
   var div = document.getElementById(key);
-  //this.messageList.reset();
+  //this.messageList.remove();
+
   // If an element for that message does not exists yet we create it.
   if (!div) {
     var container = document.createElement('div');
@@ -337,6 +341,11 @@ FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageU
     messageElement.innerHTML = '';
     messageElement.appendChild(image);
   }
+
+  if (translation) {
+    messageElement.innerHTML =  messageElement.innerHTML + '[' + translation +']';
+  }
+
   // Show the card fading-in and scroll to view the new message.
   setTimeout(function() {div.classList.add('visible')}, 1);
   this.messageList.scrollTop = this.messageList.scrollHeight;
