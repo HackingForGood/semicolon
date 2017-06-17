@@ -25,8 +25,8 @@ const Translate = require('@google-cloud/translate');
 
 
 // Adds a message that welcomes new users into the chat.
-exports.translateMessages = functions.database.ref('/courses/{courseId}/messages/{messageId}').onWrite(event => {
-	console.log(event.data.val());
+exports.translateMessages = functions.database.ref('/courses/{courseId}/messages/{messageId}/text').onWrite(event => {
+	const.message = event.data.val();
   /*
   const user = event.data;
   console.log('A new user signed in for the first time.');
