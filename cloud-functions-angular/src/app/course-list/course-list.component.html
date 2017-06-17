@@ -1,0 +1,23 @@
+<div *ngFor="let course of courses | async">
+  <md-card class="flex-item">
+       <md-card-header [routerLink]="['/course/', course.$key]">
+         <md-card-title><b>Name:</b> {{course.name}} </md-card-title>
+         <md-card-subtitle><b>Teacher:</b> {{course.teacher | uppercase}}</md-card-subtitle>
+       </md-card-header>
+
+       <md-card-actions>
+         <button md-button>Registered</button>
+       </md-card-actions>
+  </md-card>
+</div>
+
+<md-card class="flex-item">
+     <md-card-header>
+       <md-card-title><b>Name:</b> English </md-card-title>
+       <md-card-subtitle><b>Teacher:</b> MRS. JENKINS</md-card-subtitle>
+     </md-card-header>
+
+     <md-card-actions>
+       <button  color='primary' md-button>Register</button>
+     </md-card-actions>
+</md-card>
