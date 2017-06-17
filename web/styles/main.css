@@ -25,6 +25,10 @@ main, #messages-card {
   height: calc(100% - 150px);
   padding-bottom: 0;
 }
+#courses-card-container {
+  height: calc(100% - 150px);
+  padding-bottom: 0;
+}
 #messages-card {
   margin-top: 15px;
 }

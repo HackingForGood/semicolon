@@ -81,6 +81,7 @@ FriendlyChat.prototype.loadMessages = function(key = 1) {
     var val = data.val();
     this.displayMessage(data.key, val.name, val.text, val.photoUrl, val.imageUrl);
   }.bind(this);
+
   this.messagesRef.limitToLast(12).on('child_added', setMessage);
   this.messagesRef.limitToLast(12).on('child_changed', setMessage);
 };
@@ -95,7 +96,6 @@ FriendlyChat.prototype.loadCourses = function() {
   // Loads the last 12 messages and listen for new ones.
   var setCourse = function(data) {
     var val = data.val();
-    //debugger;
     this.displayCourse(data.key, val.name, val.text, val.photoUrl, val.imageUrl);
   }.bind(this);
   //console.log(setCourse);
@@ -216,7 +216,7 @@ FriendlyChat.prototype.onAuthStateChanged = function(user) {
 
     // We load currently existing chant messages.
     // Load default course message.
-    this.loadMessages(1);
+    //this.loadMessages(1);
     this.loadCourses();
 
     // We save the Firebase Messaging Device token and enable notifications.
@@ -310,6 +310,7 @@ FriendlyChat.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 // Displays a Message in the UI.
 FriendlyChat.prototype.displayMessage = function(key, name, text, picUrl, imageUri) {
   var div = document.getElementById(key);
+  //this.messageList.reset();
   // If an element for that message does not exists yet we create it.
   if (!div) {
     var container = document.createElement('div');
