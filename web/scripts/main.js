@@ -287,6 +287,15 @@ FriendlyChat.MESSAGE_TEMPLATE =
       '<div class="name"></div>' +
     '</div>';
 
+// Template for messages.
+FriendlyChat.COURSE_TEMPLATE =
+    '<div class="message-container">' +
+      '<div class="spacing"><div class="pic"></div></div>' +
+      '<div class="message"></div>' +
+      '<div class="name"></div>' +
+      '<button class="coursebutton">Test</button>'+
+    '</div>';
+
 // A loading image URL.
 FriendlyChat.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
@@ -331,14 +340,16 @@ FriendlyChat.prototype.displayCourse = function(key, name, text, picUrl, imageUr
   // If an element for that message does not exists yet we create it.
   if (!div) {
     var container = document.createElement('div');
-    container.innerHTML = FriendlyChat.MESSAGE_TEMPLATE;
+    container.innerHTML = FriendlyChat.COURSE_TEMPLATE;
     div = container.firstChild;
     div.setAttribute('id', key);
     this.courseList.appendChild(div);
   }
+  
   if (picUrl) {
     div.querySelector('.pic').style.backgroundImage = 'url(' + picUrl + ')';
   }
+
   div.querySelector('.name').textContent = name;
   var messageElement = div.querySelector('.course');
   if (text) { // If the message is text.
